@@ -1,16 +1,15 @@
 import React from 'react'
+import Classes from "./Header.module.css"
 import { Link } from 'react-router-dom'
 function Header() {
   return (
-    <>
       <nav>
         <ul>
-        <li><Link>Home</Link></li>
-        <li><Link>Favorite</Link></li>
-        <li><Link>Add new contact</Link></li>
+        <li className={Classes.links}><Link>Home</Link></li>
+        <li className={Classes.links}><Link>Favorite</Link></li>
+        <li className={Classes.links}><Link>Add new contact</Link></li>
         </ul>
       </nav>
-    </>
   )
 }
 
