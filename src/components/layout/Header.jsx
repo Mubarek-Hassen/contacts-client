@@ -5,9 +5,9 @@ function Header() {
   return (
       <nav>
         <ul>
-        <li className={Classes.links}><Link>Home</Link></li>
-        <li className={Classes.links}><Link>Favorite</Link></li>
-        <li className={Classes.links}><Link>Add new contact</Link></li>
+        <li className={Classes.links}><Link to="/">Home</Link></li>
+        <li className={Classes.links}><Link to="/favorites">Favorites</Link></li>
+        <li className={Classes.links}><Link to="/new-contact">Add new contact</Link></li>
         </ul>
       </nav>
   )
