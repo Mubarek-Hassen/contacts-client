@@ -10,6 +10,8 @@ function App() {
       <Layout>
       <Routes>
         <Route path="/" element={<UserForm />} />
+        <Route path="/contacts" element={<Contacts />} />
+        <Route path="/contacts/:id" element={<Contact />} />
         <Route path="/new-contact" element={<NewContact />} />
       </Routes>
       </Layout>
