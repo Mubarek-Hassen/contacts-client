@@ -5,11 +5,11 @@ function Login() {
     <div>
       <h2>Login</h2>
       <form>
-        <label htmlFor="email">Email </label>
-        <input type="text" placeholder='Email' />
+        <label>Email </label>
+        <input name='email' type="text" placeholder='Email' />
         <br />
-        <label htmlFor="password">Password </label>
-        <input type="password" placeholder='Password' />
+        <label>Password </label>
+        <input name='password' type="password" placeholder='Password' />
         <br />
         <button type="submit">Login</button>
       </form>

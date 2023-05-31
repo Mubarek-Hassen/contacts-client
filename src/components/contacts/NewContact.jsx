@@ -5,9 +5,11 @@ function NewContact() {
     <>
     <h2>Add a new contact</h2>
     <form>
-      <input type="text" placeholder='Name' />
-      <input type="text" placeholder='Name' />
-      <input type="text" placeholder='Name' />
+      <div>
+        <input type="text" placeholder='Name' />
+        <input type="text" placeholder='Name' />
+        <input type="text" placeholder='Name' />
+      </div>
     </form>
     </>
   )
