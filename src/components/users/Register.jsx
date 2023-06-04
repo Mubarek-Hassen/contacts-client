@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import axios from 'axios';
 function Register() {
   const [formData, setFormData] = useState({
     name: "",
@@ -12,10 +12,19 @@ function Register() {
       ...prevState, [e.target.name]: e.target.value,
     }))
   }
+  const registerHandler = async(e)=>{
+    e.preventDefault()
+    try {
+      const res = await axios.post("http://localhost:3000/user/register", { name, email, password });
+      console.log(res)
+    } catch (error) {
+      console.log(error)
+    }
+  }
   return (
     <div>
       <h2>Register</h2>
-      <form>
+      <form onSubmit={ registerHandler }>
         <label>Name </label>
         <input name='name' value={name} type="text" placeholder='Name' onChange={inputChangeHandler} /> <br />
         <label>Email </label>

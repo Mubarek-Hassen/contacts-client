@@ -11,7 +11,7 @@ function Login() {
       ...prevState, [e.target.name]: e.target.value,
     }))
   }
-  const loginHandler =async (e)=>{
+  const loginHandler = async(e)=>{
     e.preventDefault()
     try {
       const res = await axios.post("http://localhost:3000/user/login", { email, password });
