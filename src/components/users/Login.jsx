@@ -14,10 +14,10 @@ function Login() {
   const loginHandler = async(e)=>{
     e.preventDefault()
     try {
-      const res = await axios.post("http://localhost:3000/user/login", { email, password });
+      const res = await axios.post("http://localhost:4000/user/login", { email, password });
       console.log(res)
     } catch (error) {
-      console.log(error)
+      console.error(error)
     }
   }
   return (

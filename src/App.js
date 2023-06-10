@@ -11,8 +11,8 @@ function App() {
       <Layout>
       <Routes>
         <Route path="/" element={ <Home />}/>
-        <Route path="register" element={<Register />} />
-        <Route path="login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
         {/* <Route path="/contacts" element={<Contacts />} />
         <Route path="/contacts/:id" element={<Contact />} /> */}
         <Route path="/new-contact" element={<NewContact />} />

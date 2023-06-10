@@ -15,7 +15,7 @@ function Register() {
   const registerHandler = async(e)=>{
     e.preventDefault()
     try {
-      const res = await axios.post("http://localhost:3000/user/register", { name, email, password });
+      const res = await axios.post("http://localhost:4000/user/register", { name, email, password });
       console.log(res)
     } catch (error) {
       console.log(error)
