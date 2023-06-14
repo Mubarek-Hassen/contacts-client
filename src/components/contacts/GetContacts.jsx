@@ -17,7 +17,7 @@ function GetContacts() {
   },[])
   return (
     <section>
-      
+      {contacts.map((contact, i)=> <div></div> )}
     </section>
   )
 }
