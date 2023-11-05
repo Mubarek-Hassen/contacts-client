@@ -1,9 +1,10 @@
-
+// import classes from "../style/Home.module.css"
 
 function Home() {
+
   return (
     <>
-    <div>Home</div>
+    <h1>Welcome to i-Contact</h1>
     </>
   )
 }
