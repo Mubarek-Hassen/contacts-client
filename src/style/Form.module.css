@@ -1,0 +1,12 @@
+.form {
+  background-color: #1D2D44;
+  max-width: 30rem;
+  min-height: 15rem;
+  padding: 1rem;
+  margin: 0 auto;
+}
+
+.form h1 {
+  margin: 0;
+  padding: 0
+}

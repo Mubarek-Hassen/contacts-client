@@ -1,8 +1,8 @@
-
+import classes from "../style/Form.module.css"
 
 function Login() {
   return (
-    <>
+  <div className={classes.form}>
     <form>
     <h3>Login</h3>
       <label htmlFor="email">Email</label>
@@ -13,7 +13,7 @@ function Login() {
       <br />
       <input type="password" name="password"/>
     </form>
-    </>
+  </div>
   )
 }
 

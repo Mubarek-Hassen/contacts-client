@@ -1,21 +1,20 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import  "./App.css"
-import Home from "./pages/Home"
+import Auth from "./pages/Auth"
 import ContactList from "./pages/ContactList"
 import Contact from "./pages/Contact"
 import Root from "./components/Root"
-import SignUp from "./pages/SignUp"
-import Login from "./pages/Login"
+import Home from "./pages/Home"
+
 
 function App() {
   const router = createBrowserRouter([
     {path: "/", element: <Root />, children: [
       {path: "/", element: <Home />},
+      {path: "/auth", element: <Auth />},
       {path: "/contacts", element: <ContactList />, children: [
         {path: ":contactId", element: <Contact /> },
       ]},
-      {path: "/signup", element: <SignUp /> },
-      {path: "/login", element: <Login /> },
     ]},
 
   ])

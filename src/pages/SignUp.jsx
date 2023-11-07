@@ -1,9 +1,9 @@
-
+import classes from "../style/Form.module.css"
 
 function SignUp() {
   return (
-    <>
-    <form>
+    <div>
+    <form className={classes.form}>
       <h3>Sign Up</h3>
       <label htmlFor="name">Name</label>
       <br />
@@ -17,7 +17,7 @@ function SignUp() {
       <br />
       <input type="password" name="password" />
     </form>
-    </>
+    </div>
   )
 }
 

@@ -1,19 +1,12 @@
-import classes from "../style/Home.module.css"
-
-import Login from "./Login"
-import SignUp from "./SignUp"
+import { Link } from "react-router-dom"
 
 function Home() {
-
   return (
-    <>
-    <h1>Welcome to i-Contact</h1>
-    <h2>Keep your contacts with you on the go.</h2>
-    <div className={classes.acc}>
-      <Login />
-      <SignUp />
+    <div>
+      <h1>Welcome to i-Contact</h1>
+      <h2>Keep your contacts with you on the go.</h2>
+      <Link to="/auth">Get Started!</Link>
     </div>
-    </>
   )
 }
 
