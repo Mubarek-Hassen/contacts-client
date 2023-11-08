@@ -1,8 +1,8 @@
 import classes from "../style/Auth.module.css"
 import { Link, useSearchParams } from "react-router-dom"
 
-import Login from "./Login"
-import SignUp from "./SignUp"
+import Login from "../components/Login"
+import SignUp from "../components/SignUp"
 
 function Auth() {
 

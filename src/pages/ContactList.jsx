@@ -6,7 +6,7 @@ function ContactList() {
   return (
     <>
     { contacts.map((contact)=> 
-      <Link key={contact._id} to={`/contacts/${contact._id}`} >
+      <Link key={contact._id} to={`${contact._id}`} >
         <h2>{contact.name}</h2>
         <h3>{contact.profession}</h3>
       </Link> 
