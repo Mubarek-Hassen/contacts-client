@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from "react-router-dom"
+import { Link, json, useLoaderData } from "react-router-dom"
 
 function ContactList() {
   const contacts = useLoaderData()
@@ -19,7 +19,7 @@ export default ContactList
 export async function contactsLoader(){
   const response = await fetch("http://localhost:4000/contacts")
   if(!response.ok){
-    //
+    return json({message: "Cannot fetch contacts."}, {status: 500})
   } else {
     const res = await response.json()
     return res
