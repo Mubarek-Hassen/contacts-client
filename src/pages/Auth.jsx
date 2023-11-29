@@ -17,7 +17,7 @@ function Auth() {
       { isLogin && <Login />}
       { !isLogin && <SignUp />}
       <p>{isLogin ? `Don't have an account?` : `Already a user?`}</p>
-      <Link to={`?mode=${isLogin ? "signup" : "login"}`}>
+      <Link to={`?mode=${isLogin ? "register" : "login"}`}>
         {isLogin ? "Create Account" : "Login"}
       </Link>
     </div>
@@ -36,9 +36,9 @@ export async function authAction({ request }){
     email: data.get("email"),
     password: data.get("password"),
   }
-  if(mode === "signup") enteredData.name = data.get("name")
+  if(mode === "register") enteredData.name = data.get("name")
 
-  const res = await axios.post(`http://localhost:4000/auth/${mode}`, enteredData)
+  const res = await axios.post(`http://localhost:4000/user/${mode}`, enteredData)
   const isSuccess = res
   console.log(isSuccess);
   return isSuccess
