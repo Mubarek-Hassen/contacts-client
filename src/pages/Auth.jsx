@@ -4,6 +4,7 @@ import { json, Link, redirect, useSearchParams, useActionData } from "react-rout
 
 import Login from "../components/Login"
 import SignUp from "../components/SignUp"
+import { setAuthToken } from "../util/auth";
 
 
 function Auth() {
@@ -33,7 +34,6 @@ export default Auth
 export async function authAction({ request }){
   const searchParams = new URL(request.url).searchParams
   const mode = searchParams.get("mode")
-  console.log(mode)
   const data = await request.formData()
 
   const enteredData = {
@@ -42,22 +42,24 @@ export async function authAction({ request }){
   }
   if(mode === "register") enteredData.name = data.get("name")
 
-
-
   const res = await fetch(`http://localhost:4000/user/${mode}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
     body: JSON.stringify(enteredData),
-  })
-
+  }) 
+  
   const resData = await res.json()
-
-  console.log(resData)
-
   if(res.status === 401){
-    throw json({message: resData}, { status: 401})
+      throw json({message: resData}, { status: 401})
+  }
+
+  const token = resData.token
+  setAuthToken(token)
+
+  if(token){
+    return redirect("/contacts")
   }
   return redirect(`/auth?mode=${mode}`)
 }
