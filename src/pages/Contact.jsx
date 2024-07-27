@@ -2,7 +2,6 @@ import { json, useLoaderData } from "react-router-dom"
 
 
 export default function Contact() {
-  // const {contactId} = useParams()
   const contact = useLoaderData()
   return (
     <div>

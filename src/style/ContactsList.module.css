@@ -1,0 +1,26 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.link {
+  text-decoration: none;
+  color: #F0EBD8;
+  /* display: flex;
+  align-items: center; */
+
+}
+.link:hover {
+  color: green;
+  text-decoration: wavy underline;
+}
+.name {
+  margin: 0;
+  padding: 0;
+}
+.profession {
+  margin: 0;
+  margin-bottom: 2rem;
+  padding: 0;
+}

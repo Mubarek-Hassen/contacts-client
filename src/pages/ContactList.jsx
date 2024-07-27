@@ -1,15 +1,18 @@
 import { Link, json, useLoaderData } from "react-router-dom"
-
+import classes from "../style/ContactsList.module.css"
 function ContactList() {
   const contacts = useLoaderData()
 
   return (
     <>
-    { contacts.map((contact)=> 
-      <Link key={contact._id} to={`${contact._id}`} >
-        <h2>{contact.name}</h2>
-        <h3>{contact.profession}</h3>
-      </Link> 
+    {!contacts &&  <h2>There are no contacts.</h2> }
+    { contacts.map((contact)=>
+      <div key={contact._id} className={classes.wrapper}>
+      <Link to={`${contact._id}`} className={classes.link}>
+        <h2 className={classes.name}>{contact.name}</h2>
+        <h3 className={classes.profession}>{contact.profession}</h3>
+      </Link>
+      </div>
     )}
     </>
   )
