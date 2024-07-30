@@ -1,9 +1,11 @@
 import ContactForm from "../components/ContactForm"
-
+import { useRouteLoaderData } from "react-router-dom";
 
 const EditContact = () => {
+  const contact = useRouteLoaderData("contact");
+  console.log(contact)
   return (
-    <ContactForm />
+    <ContactForm method={"put"} contact={contact} />
   )
 }
 

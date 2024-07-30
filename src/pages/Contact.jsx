@@ -1,12 +1,15 @@
-import { json, useLoaderData } from "react-router-dom"
+import { json, Link, useLoaderData } from "react-router-dom"
 
 
 export default function Contact() {
   const contact = useLoaderData()
   return (
     <div>
-      <h1>Welcome</h1>
-      <h1>{contact.name}</h1>
+      <h2>Name - {contact.name}</h2>
+      <h2>Profession - {contact.profession}</h2>
+      <button>
+        <Link to="edit"> Edit Contact</Link>
+      </button>
     </div>
   )
 }
