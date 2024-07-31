@@ -1,8 +1,8 @@
 import { Link, json, useLoaderData } from "react-router-dom"
 import classes from "../style/ContactsList.module.css"
+import { getAuthToken } from "../util/auth"
 function ContactList() {
   const contacts = useLoaderData()
-
   
   return (
     <>
@@ -26,7 +26,13 @@ function ContactList() {
 export default ContactList
 
 export async function contactsLoader(){
-  const response = await fetch("http://localhost:4000/contacts")
+  const token = getAuthToken
+  const response = await fetch("http://localhost:4000/contacts", {
+    headers: {
+      
+      "Authorization": `Bearer ${token}`,
+    }
+  })
   if(!response.ok){
     throw json({message: "Cannot fetch contacts."}, {status: 500})
   } else {

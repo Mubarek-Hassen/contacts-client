@@ -19,7 +19,12 @@ const ContactForm = ({method, contact}) => {
         name="profession"
         defaultValue={contact ? contact.profession : ""}
       />
+      <br />
+      <br />
       <button type="submit">Save Contact</button>
+      <br />
+      <br />
+      
     </Form>
   );
 };
@@ -59,7 +64,6 @@ export const action = async ({request, params}) =>{
     },
     body: JSON.stringify(enteredContactData)
   })
-
   const resData = await response.json()
   console.log(resData)
   if(response.status === 401){

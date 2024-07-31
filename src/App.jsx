@@ -2,7 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import Auth, { authAction } from "./pages/Auth";
 import ContactList, { contactsLoader } from "./pages/ContactList";
-import Contact, { contactLoader } from "./pages/Contact";
+import Contact, { contactLoader, action as contactAction } from "./pages/Contact";
 import EditContact from "./pages/EditContact";
 import Root from "./components/Root";
 import Home from "./pages/Home";
@@ -19,22 +19,36 @@ function App() {
       children: [
         { path: "/", element: <Home /> },
         { path: "/auth", element: <Auth />, action: authAction },
-        { path: "/contacts", element: <ContactList />, loader: contactsLoader },
         {
-          path: "/contacts/new",
-          element: <NewContact />,
-          action: manipulateContactAction,
-        },
-        {
-          path: "/contacts/:contactId",
-          element: <Contact />,
-          loader: contactLoader,
-          id: "contact",
-        },
-        {
-          path: "/contacts/:contactId/edit",
-          element: <EditContact />,
-          action: manipulateContactAction,
+          path: "/contacts",
+          children: [
+            {
+              index: true,
+              element: <ContactList />,
+              loader: contactsLoader,
+            },
+            {
+              path: "new",
+              element: <NewContact />,
+              action: manipulateContactAction,
+            },
+            {
+              path: ":contactId",
+              loader: contactLoader,
+              action: contactAction,
+              id: "contact",
+              children: [
+                {
+                  index: true, element: <Contact />,
+                },
+                {
+                  path: "edit",
+                  element: <EditContact />,
+                  action: manipulateContactAction,
+                },
+              ]
+            },
+          ],
         },
       ],
     },
