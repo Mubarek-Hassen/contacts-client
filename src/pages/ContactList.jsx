@@ -26,11 +26,12 @@ function ContactList() {
 export default ContactList
 
 export async function contactsLoader(){
-  const token = getAuthToken
+  const token = getAuthToken("token")
   const response = await fetch("http://localhost:4000/contacts", {
+    method: "GET",
     headers: {
-      
-      "Authorization": `Bearer ${token}`,
+      "Content-Type": "application/json",
+      "Authorization":`Bearer ${token}`,
     }
   })
   if(!response.ok){

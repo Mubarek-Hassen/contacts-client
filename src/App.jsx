@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import Error from "./pages/Error";
 import NewContact from "./pages/NewContact";
 import { action as manipulateContactAction } from "./components/ContactForm";
+import { action as logoutAction } from "./util/router-actions/logoutAction"
 
 function App() {
   const router = createBrowserRouter([
@@ -50,6 +51,10 @@ function App() {
             },
           ],
         },
+        {
+          path: "/logout",
+          action: logoutAction,
+        }
       ],
     },
   ]);

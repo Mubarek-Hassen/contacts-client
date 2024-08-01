@@ -8,7 +8,7 @@ export default function Contact() {
   const startDeleteHandler =()=>{
     const proceed = window.confirm(`Do you want to delete ${contact.name}'s contact info?`)
     if(proceed){
-      submit(null, {method: "delete"})
+      submit(null, {method: "delete", action: "/contacts/"+contact._id})
     }
   }
 
