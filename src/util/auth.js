@@ -11,3 +11,7 @@ export function getAuthToken(){
 export function removeAuthToken(){
   localStorage.removeItem("token")
 }
+
+export function tokenLoader(){
+  return getAuthToken()
+}

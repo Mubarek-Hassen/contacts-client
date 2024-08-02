@@ -1,4 +1,4 @@
-import { NavLink, useSubmit } from "react-router-dom"
+import { NavLink, useRouteLoaderData, useSubmit } from "react-router-dom"
 import classes from "./Header.module.css"
 
 
@@ -10,6 +10,7 @@ function Header() {
     submit(null, {method: "post", action: "/logout"})
   }
 
+  const token = useRouteLoaderData("root")
 
   return (
     <header className={classes.header}>
@@ -23,16 +24,22 @@ function Header() {
               Home
             </NavLink>
           </li>
-          <li>
+          {token && <li>
             <NavLink to="/contacts" className={({isActive})=> isActive ? classes.active : undefined}>
               Contacts
             </NavLink>
-          </li>
-          <li>
+          </li>}
+          {!token && <li>
+            <NavLink to="/auth?mode=login" className={({isActive})=> isActive ? classes.active : undefined}>
+              Log In
+            </NavLink>
+          </li>}
+
+          {token && <li>
             <button onClick={ logOutHandler }>
               Logout
             </button>
-          </li>
+          </li>}
         </ul>
       </nav>
     </header>

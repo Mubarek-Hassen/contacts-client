@@ -10,6 +10,7 @@ import Error from "./pages/Error";
 import NewContact from "./pages/NewContact";
 import { action as manipulateContactAction } from "./components/ContactForm";
 import { action as logoutAction } from "./util/router-actions/logoutAction"
+import { tokenLoader } from "./util/auth";
 
 function App() {
   const router = createBrowserRouter([
@@ -17,6 +18,8 @@ function App() {
       path: "/",
       element: <Root />,
       errorElement: <Error />,
+      id: "root",
+      loader: tokenLoader,
       children: [
         { path: "/", element: <Home /> },
         { path: "/auth", element: <Auth />, action: authAction },
