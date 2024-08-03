@@ -10,7 +10,7 @@ import Error from "./pages/Error";
 import NewContact from "./pages/NewContact";
 import { action as manipulateContactAction } from "./components/ContactForm";
 import { action as logoutAction } from "./util/router-actions/logoutAction"
-import { tokenLoader } from "./util/auth";
+import { checkAuthLoader, tokenLoader } from "./util/auth";
 
 function App() {
   const router = createBrowserRouter([
@@ -21,10 +21,11 @@ function App() {
       id: "root",
       loader: tokenLoader,
       children: [
-        { path: "/", element: <Home /> },
+        { path: "/", element: <Home />, },
         { path: "/auth", element: <Auth />, action: authAction },
         {
           path: "/contacts",
+          loader: checkAuthLoader,
           children: [
             {
               index: true,
@@ -35,6 +36,7 @@ function App() {
               path: "new",
               element: <NewContact />,
               action: manipulateContactAction,
+              loader: checkAuthLoader,
             },
             {
               path: ":contactId",
@@ -49,6 +51,7 @@ function App() {
                   path: "edit",
                   element: <EditContact />,
                   action: manipulateContactAction,
+                  loader: checkAuthLoader,
                 },
               ]
             },
