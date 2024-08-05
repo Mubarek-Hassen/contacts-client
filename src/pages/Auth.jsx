@@ -57,6 +57,9 @@ export async function authAction({ request }){
 
   const token = resData.token
   setAuthToken(token)
+  const expiration = new Date();
+  expiration.setHours(expiration.getHours() + 1)
+  localStorage.setItem("expiration", expiration.toISOString())
 
   if(token){
     return redirect("/contacts")
