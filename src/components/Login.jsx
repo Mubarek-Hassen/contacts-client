@@ -1,22 +1,7 @@
 import { Form } from "react-router-dom"
 import classes from "../style/Form.module.css"
-// import { useState } from "react"
+
 function Login() {
-  // //STATE
-  // const [loginData, setLoginData] = useState({
-  //   email: "",
-  //   password: ""
-  // })
-
-  // function changeHandler(e){
-  //   setLoginData((prev)=>{
-  //     return {
-  //       ...prev,
-  //       [e.target.name] : e.target.value
-  //     }
-  //   })
-  // }
-
   return (
   <>
     <Form method="post" className={classes.form}>
@@ -34,5 +19,4 @@ function Login() {
   </>
   )
 }
-
 export default Login

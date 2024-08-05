@@ -1,48 +1,46 @@
 import { redirect } from "react-router-dom";
 
-export const setAuthToken =(string)=>{
-  localStorage.setItem("token", string)
-}
+export const setAuthToken = (string) => {
+  localStorage.setItem("token", string);
+};
 
 export function getTokenDuration() {
   const storedExpirationDate = localStorage.getItem("expiration");
-  const expirationDate = new Date(storedExpirationDate)
-  const now = new Date()
-  const duration = expirationDate.getTime() - now.getTime()
-  return duration
+  const expirationDate = new Date(storedExpirationDate);
+  const now = new Date();
+  const duration = expirationDate.getTime() - now.getTime();
+  return duration;
 }
 
-
-export function getAuthToken(){
+export function getAuthToken() {
   const token = localStorage.getItem("token");
 
-  if(!token){
+  if (!token) {
     return null;
   }
 
-  const tokenDuration = getTokenDuration()
+  const tokenDuration = getTokenDuration();
 
-  if(tokenDuration < 0){
+  if (tokenDuration < 0) {
     return "EXPIRED";
   }
 
-
-  return token
+  return token;
 }
 
-export function removeAuthToken(){
-  localStorage.removeItem("token")
-  localStorage.removeItem("expiration")
+export function removeAuthToken() {
+  localStorage.removeItem("token");
+  localStorage.removeItem("expiration");
 }
 
-export function tokenLoader(){
-  return getAuthToken()
+export function tokenLoader() {
+  return getAuthToken();
 }
 
-export const checkAuthLoader =()=>{
-  const token = getAuthToken()
-  if(!token){
-    return redirect("/auth?mode=register")
+export const checkAuthLoader = () => {
+  const token = getAuthToken();
+  if (!token) {
+    return redirect("/auth?mode=register");
   }
-  return null
-}
+  return null;
+};

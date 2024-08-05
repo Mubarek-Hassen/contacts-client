@@ -1,68 +1,24 @@
-import classes from "../style/Auth.module.css"
-import { json, Link, redirect, useSearchParams, useActionData } from "react-router-dom"
-
-
-import Login from "../components/Login"
-import SignUp from "../components/SignUp"
-import { setAuthToken } from "../util/auth";
-
+import classes from "../style/Auth.module.css";
+import { Link, useSearchParams } from "react-router-dom";
+import Login from "../components/Login";
+import SignUp from "../components/Register";
 
 function Auth() {
-
   const [searchParams] = useSearchParams();
-  const isLogin = searchParams.get("mode") === "login"
-  const data = useActionData()
-  // console.log(data)
+  const isLogin = searchParams.get("mode") === "login";
+
   return (
     <>
-    <h1>Welcome to i-Contact</h1>
-    {data && data}
-    <div className={classes.acc}>
-      { isLogin && <Login />}
-      { !isLogin && <SignUp />}
-      <p>{isLogin ? `Don't have an account?` : `Already a user?`}</p>
-      <Link to={`?mode=${isLogin ? "register" : "login"}`}>
-        {isLogin ? "Create Account" : "Login"}
-      </Link>
-    </div>
+      <h1>Welcome to i-Contact</h1>
+      <div className={classes.acc}>
+        {isLogin && <Login />}
+        {!isLogin && <SignUp />}
+        <p>{isLogin ? `Don't have an account?` : `Already a user?`}</p>
+        <Link to={`?mode=${isLogin ? "register" : "login"}`}>
+          {isLogin ? "Create Account" : "Login"}
+        </Link>
+      </div>
     </>
-  )
+  );
 }
-
-export default Auth
-
-export async function authAction({ request }){
-  const searchParams = new URL(request.url).searchParams
-  const mode = searchParams.get("mode")
-  const data = await request.formData()
-
-  const enteredData = {
-    email: data.get("email"),
-    password: data.get("password"),
-  }
-  if(mode === "register") enteredData.name = data.get("name")
-
-  const res = await fetch(`http://localhost:4000/user/${mode}`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(enteredData),
-  }) 
-  
-  const resData = await res.json()
-  if(res.status === 401){
-      throw json({message: resData}, { status: 401})
-  }
-
-  const token = resData.token
-  setAuthToken(token)
-  const expiration = new Date();
-  expiration.setHours(expiration.getHours() + 1)
-  localStorage.setItem("expiration", expiration.toISOString())
-
-  if(token){
-    return redirect("/contacts")
-  }
-  return redirect(`/auth?mode=${mode}`)
-}
+export default Auth;
