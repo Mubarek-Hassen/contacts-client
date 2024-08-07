@@ -21,11 +21,19 @@ export async function authAction({ request }){
   }) 
   
   const resData = await res.json()
+
+  console.log(resData);
+  if(!resData.token){
+    return resData;
+  }  
+
   if(res.status === 401){
       throw json({message: resData}, { status: 401})
   }
 
+
   const token = resData.token
+
   setAuthToken(token)
   const expiration = new Date();
   expiration.setHours(expiration.getHours() + 1)
