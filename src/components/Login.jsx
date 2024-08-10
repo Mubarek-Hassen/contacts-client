@@ -1,10 +1,10 @@
 import { Form } from "react-router-dom"
-import classes from "../style/Form.module.css"
+
 
 function Login() {
   return (
   <>
-    <Form method="post" className={classes.form}>
+    <Form method="post">
     <h3>Login</h3>
       <label htmlFor="email">Email</label>
       <br />

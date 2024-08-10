@@ -1,5 +1,5 @@
 import { Link, useLoaderData } from "react-router-dom";
-import classes from "../style/ContactsList.module.css";
+
 
 function ContactList() {
   const contacts = useLoaderData();
@@ -9,10 +9,10 @@ function ContactList() {
       {!contacts.length && <h2>There are no contacts.</h2>}
       {contacts &&
         contacts.map((contact) => (
-          <div key={contact._id} className={classes.wrapper}>
-            <Link to={`${contact._id}`} className={classes.link}>
-              <h2 className={classes.name}>{contact.name}</h2>
-              <h3 className={classes.profession}>{contact.profession}</h3>
+          <div key={contact._id} >
+            <Link to={`${contact._id}`} >
+              <h2>{contact.name}</h2>
+              <h3>{contact.profession}</h3>
             </Link>
           </div>
         ))}

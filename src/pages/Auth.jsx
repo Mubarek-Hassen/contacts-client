@@ -1,4 +1,4 @@
-import classes from "../style/Auth.module.css";
+
 import { Link, useSearchParams, useActionData } from "react-router-dom";
 import Login from "../components/Login";
 import SignUp from "../components/Register";
@@ -14,7 +14,7 @@ function Auth() {
   return (
     <>
       <h1>Welcome to i-Contact</h1>
-      <div className={classes.acc}>
+      <div>
         {errors && <ul>
           {Object.values(errors).map(error => <li key={error}>{error}</li>)}
         </ul> }
