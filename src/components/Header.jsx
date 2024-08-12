@@ -1,4 +1,5 @@
 import { NavLink, useRouteLoaderData, useSubmit } from "react-router-dom"
+import Button from "./Button"
 
 function Header() {
 
@@ -28,14 +29,17 @@ function Header() {
           {!token && <li>
             {/* <NavLink to="/auth?mode=login" className={({isActive})=> isActive ? classes.active : undefined}> */}
             <NavLink to="/auth?mode=login">
+            <Button>
+
               Log In
+            </Button>
             </NavLink>
           </li>}
 
           {token && <li>
-            <button onClick={ logOutHandler }>
+            <Button onClick={ logOutHandler }>
               Logout
-            </button>
+            </Button>
           </li>}
         </ul>
       </nav>

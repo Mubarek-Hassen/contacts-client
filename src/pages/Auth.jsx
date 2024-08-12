@@ -7,14 +7,15 @@ function Auth() {
   const [searchParams] = useSearchParams();
   const isLogin = searchParams.get("mode") === "login";
   const errors = useActionData()
+
   console.log(errors)
 
 
 
   return (
     <>
-      <h1>Welcome to i-Contact</h1>
       <div>
+        <h1 className="text-3xl font-semibold font-serif">{isLogin ? "Log In" : "Register"}</h1>
         {errors && <ul>
           {Object.values(errors).map(error => <li key={error}>{error}</li>)}
         </ul> }

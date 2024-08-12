@@ -69,9 +69,9 @@ function App() {
     },
   ]);
   return (
-    <body className=" bg-orange-500 w-full text-orange-50 h-full">
+    <>
       <RouterProvider router={router} />
-    </body>
+    </>
   );
 }
 
