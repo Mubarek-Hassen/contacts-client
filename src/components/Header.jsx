@@ -12,12 +12,12 @@ function Header() {
   const token = useRouteLoaderData("root")
 
   return (
-    <header className="flex justify-between items-center bg-orange-900 w-full" >
-      <h2 className="mx-8 text-3xl">I-Contact</h2>
+    <header className="flex justify-between items-center bg-indigo-300 w-full" >
+      <h2 className="mx-8 text-4xl font-serif">I-Contact</h2>
       <nav className="mx-8">
         <ul className="flex gap-4 m-2 ">
-          <li  >
-            <NavLink to="/" end>
+          <li>
+            <NavLink to="/"  className={({isActive})=> isActive ? "bg-slate-100 text-red-900" : undefined} end>
               Home
             </NavLink>
           </li>
@@ -28,11 +28,8 @@ function Header() {
           </li>}
           {!token && <li>
             {/* <NavLink to="/auth?mode=login" className={({isActive})=> isActive ? classes.active : undefined}> */}
-            <NavLink to="/auth?mode=login">
-            <Button>
-
+            <NavLink to="/auth?mode=login" className={({isActive})=> isActive ? "bg-slate-100 text-red-900" : ""}>
               Log In
-            </Button>
             </NavLink>
           </li>}
 
