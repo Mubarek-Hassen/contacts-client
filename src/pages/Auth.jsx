@@ -2,6 +2,7 @@
 import { Link, useSearchParams, useActionData } from "react-router-dom";
 import Login from "../components/Login";
 import SignUp from "../components/Register";
+import Wrapper from "../components/Wrapper";
 
 function Auth() {
   const [searchParams] = useSearchParams();
@@ -14,18 +15,18 @@ function Auth() {
 
   return (
     <>
-      <div>
-        <h1 className="text-3xl font-semibold font-serif">{isLogin ? "Log In" : "Register"}</h1>
+      <Wrapper>
+        <h1 className="text-3xl my-4 font-semibold font-serif">{isLogin ? "Log In" : "Register"}</h1>
         {errors && <ul>
           {Object.values(errors).map(error => <li key={error}>{error}</li>)}
         </ul> }
         {isLogin && <Login />}
         {!isLogin && <SignUp />}
-        <p>{isLogin ? `Don't have an account?` : `Already a user?`}</p>
-        <Link to={`?mode=${isLogin ? "register" : "login"}`}>
+      </Wrapper>
+        <p className="my-8 text-xl">{isLogin ? `Don't have an account?` : `Already a user?`}</p>
+        <Link className="mt-2 border-black border-2 p-2 text-slate-200 hover:text-slate-900 bg-slate-800 hover:bg-slate-100" to={`?mode=${isLogin ? "register" : "login"}`}>
           {isLogin ? "Create Account" : "Login"}
         </Link>
-      </div>
     </>
   );
 }

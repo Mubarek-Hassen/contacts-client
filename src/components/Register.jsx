@@ -1,26 +1,16 @@
 
 import { Form } from "react-router-dom"
+import Input from "./Input"
+import Button from "./Button"
 
 function SignUp() {
   return (
-    <div>
     <Form method="post" >
-      <h3>Sign Up</h3>
-      <label htmlFor="name">Name</label>
-      <br />
-      <input type="text" name="name"/>
-      <br />
-      <label htmlFor="email">Email</label>
-      <br />
-      <input type="text" name="email" />
-      <br />
-      <label htmlFor="password">Password</label>
-      <br />
-      <input type="password" name="password"/>
-      <br />
-      <button type="submit">Submit</button>
+      <Input htmlFor="name" type="text" name="name" label="Name" />
+      <Input htmlFor="email" type="text" name="email" label="Email" />
+      <Input htmlFor="password" type="password" name="password" label="Password" />
+      <Button type="submit">Submit</Button>
     </Form>
-    </div>
   )
 }
 
