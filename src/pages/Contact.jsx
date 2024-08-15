@@ -1,4 +1,5 @@
 import { Link, useRouteLoaderData, useSubmit } from "react-router-dom"
+import Button from "../components/Button"
 
 
 export default function Contact() {
@@ -13,14 +14,16 @@ export default function Contact() {
 
   return (
     <div>
-      <h2>Name - {contact.name}</h2>
-      <h2>Profession - {contact.profession}</h2>
-      <button>
-        <Link to="edit"> Edit Contact</Link>
-      </button>
-      <button onClick={startDeleteHandler}>
+      <h2 className="text-4xl my-4 " >Name - {contact.name}</h2>
+      <h2 className="text-4xl mb-4">Profession - {contact.profession}</h2>
+      <Link to="edit"> 
+        <Button>
+          Edit Contact
+        </Button>
+      </Link>
+      <Button onClick={startDeleteHandler}>
         Delete
-      </button>
+      </Button>
     </div>
   )
 }
