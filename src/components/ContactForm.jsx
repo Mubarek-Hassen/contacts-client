@@ -1,8 +1,10 @@
 import { Form } from "react-router-dom";
+import Wrapper from "./Wrapper"
 import Input from "./Input"
 const ContactForm = ({ method, contact }) => {
   return (
-    <Form method={method} className="w-3/4 flex justify-center flex-col m-auto border-black border-2 ">
+<Wrapper>
+    <Form method={method} className="w-3/4 flex justify-center flex-col m-auto  my-4 ">
       <Input
         type="text"
         aria-label="name"
@@ -25,7 +27,11 @@ const ContactForm = ({ method, contact }) => {
       <br />
       <br />
     </Form>
+    </Wrapper>
   );
 };
 
 export default ContactForm;
+
+
+

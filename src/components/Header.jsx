@@ -49,7 +49,7 @@ function Header() {
           )}
 
           {token && (
-            <button onClick={logOutHandler} className="border-black border-2 p-2 bg-black text-green-500 hover:bg-slate-200 hover:text-slate-900 rounded">Logout</button>
+            <button onClick={logOutHandler} className="border-black border-2 p-2 bg-black text-red-500 hover:bg-slate-200 hover:text-slate-900 rounded">Logout</button>
           )}
         </ul>
       </nav>

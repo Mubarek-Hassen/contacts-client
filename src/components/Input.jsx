@@ -3,8 +3,8 @@
 const Input = ({label, amIError, ...props}) => {
   
 
-  let labelClasses = "block text-xl text-left "
-  let inputClasses = " border-2 border-black "
+  let labelClasses = "block text-xl  "
+  let inputClasses = " border-2 border-black  "
 
 
 
@@ -23,7 +23,7 @@ const Input = ({label, amIError, ...props}) => {
   return (
     <div className="mt-4 mb-2" >
       <label htmlFor={label} className={labelClasses}>{label}</label>
-      <input {...props} className={inputClasses} />
+      <input {...props} placeholder={"Enter "+label} className={inputClasses} />
     </div>
   )
 }
