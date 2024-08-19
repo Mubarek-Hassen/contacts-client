@@ -31,6 +31,7 @@ export function getAuthToken() {
 export function removeAuthToken() {
   localStorage.removeItem("token");
   localStorage.removeItem("expiration");
+  return redirect("/auth?mode=login")
 }
 
 export function tokenLoader() {

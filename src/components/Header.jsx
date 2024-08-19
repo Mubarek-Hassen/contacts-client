@@ -11,7 +11,7 @@ function Header() {
   const token = useRouteLoaderData("root");
 
   return (
-    <header className="flex justify-between items-center p-4 bg-indigo-300 w-full">
+    <header className="flex justify-between items-center p-4 bg-indigo-500 w-full">
       <h2 className="mx-8 text-4xl font-semibold font-serif">I-Contact</h2>
       <nav className="mx-8">
         <ul className="flex justify-between items-center gap-4 m-2 text-xl ">
@@ -44,12 +44,37 @@ function Header() {
           )}
           {!token && (
             <li>
-              <NavLink className={({isActive})=> isActive ? "border-black border-2 p-2 bg-slate-900 underline text-green-500 hover:bg-slate-200 hover:text-slate-900 rounded" :"border-black border-2 p-2 bg-black text-green-500 hover:bg-slate-200 hover:text-slate-900 rounded" }to="/auth?mode=login">Log In</NavLink>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "border-black border-2 p-2 bg-slate-900 underline text-green-500 hover:bg-slate-200 hover:text-slate-900 rounded"
+                    : "border-black border-2 p-2 bg-black text-green-500 hover:bg-slate-200 hover:text-slate-900 rounded"
+                }
+                to="/auth?mode=login"
+              >
+                Log In
+              </NavLink>
             </li>
           )}
 
           {token && (
-            <button onClick={logOutHandler} className="border-black border-2 p-2 bg-black text-red-500 hover:bg-slate-200 hover:text-slate-900 rounded">Logout</button>
+            <button
+              onClick={logOutHandler}
+              className="border-black border-2 p-2 bg-black text-red-500 hover:bg-slate-200 hover:text-slate-900 rounded-full"
+            >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="size-6"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M7.5 3.75A1.5 1.5 0 0 0 6 5.25v13.5a1.5 1.5 0 0 0 1.5 1.5h6a1.5 1.5 0 0 0 1.5-1.5V15a.75.75 0 0 1 1.5 0v3.75a3 3 0 0 1-3 3h-6a3 3 0 0 1-3-3V5.25a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3V9A.75.75 0 0 1 15 9V5.25a1.5 1.5 0 0 0-1.5-1.5h-6Zm10.72 4.72a.75.75 0 0 1 1.06 0l3 3a.75.75 0 0 1 0 1.06l-3 3a.75.75 0 1 1-1.06-1.06l1.72-1.72H9a.75.75 0 0 1 0-1.5h10.94l-1.72-1.72a.75.75 0 0 1 0-1.06Z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+            </button>
           )}
         </ul>
       </nav>
