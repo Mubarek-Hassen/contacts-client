@@ -1,4 +1,4 @@
-import { Outlet, useLoaderData, useSubmit } from "react-router-dom"
+import { Outlet, redirect, useLoaderData, useSubmit } from "react-router-dom"
 import Header from "./Header"
 import { useEffect } from "react"
 import { getTokenDuration } from "../util/auth"
@@ -20,6 +20,7 @@ function Root() {
     
     setTimeout(() => {
       submit(null, {action: "/logout",method: "post"})
+      return redirect("/auth?mode=login")
     }, tokenDuration);
 
   }, [token, submit])

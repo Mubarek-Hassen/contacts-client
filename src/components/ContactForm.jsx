@@ -1,9 +1,10 @@
 import { Form } from "react-router-dom";
 import Wrapper from "./Wrapper"
 import Input from "./Input"
-const ContactForm = ({ method, contact }) => {
+const ContactForm = ({ method, contact, formType }) => {
   return (
 <Wrapper>
+  <h1 className="text-3xl">{formType}</h1>
     <Form method={method} className="w-3/4 flex justify-center flex-col m-auto  my-4 ">
       <Input
         type="text"

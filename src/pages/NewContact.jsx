@@ -2,7 +2,7 @@ import ContactForm from "../components/ContactForm"
 
 const NewContact = () => {
   return (
-    <ContactForm method={"post"} />
+    <ContactForm method={"post"} formType="Add a new contact" />
   )
 }
 

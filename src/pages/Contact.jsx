@@ -14,7 +14,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="my-8 p-4 w-3/5 m-auto bg-yellow-500 " >
+    <div className=" my-8 p-4 w-3/5 m-auto bg-yellow-500 " >
       <h2 className="text-4xl my-4 ">Name - {contact.name}</h2>
       <h2 className="text-4xl mb-4">Profession - {contact.profession}</h2>
       <Link to="edit">

@@ -4,7 +4,7 @@ import { useRouteLoaderData } from "react-router-dom";
 const EditContact = () => {
   const contact = useRouteLoaderData("contact");
   return (
-    <ContactForm method={"put"} contact={contact} />
+    <ContactForm method={"put"} formType={`Edit ${contact.name}'s details`} contact={contact} />
   )
 }
 

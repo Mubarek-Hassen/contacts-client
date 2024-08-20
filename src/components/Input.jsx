@@ -4,7 +4,7 @@ const Input = ({label, amIError, ...props}) => {
   
 
   let labelClasses = "block text-xl  "
-  let inputClasses = " border-2 border-black  "
+  let inputClasses = " border-2 border-black text-center  h-10 "
 
 
 
