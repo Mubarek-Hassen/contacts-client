@@ -7,7 +7,7 @@ function Login() {
   const inputErrors = errors !== undefined ?  Object.keys(errors) : []
   return (
   <>
-    <Form method="post" className=" ">
+    <Form method="post" className="">
       <Input label="Email" name="email" amIError={inputErrors} type="text" />
       <Input label="Password" name="password" amIError={inputErrors} type="password" />
       <Button type="submit">Submit</Button>

@@ -6,12 +6,14 @@ function Auth() {
   const [searchParams] = useSearchParams();
   const isLogin = searchParams.get("mode") === "login";
   const errors = useActionData()
+  console.log(errors);
+  
   return (
     <>
       <Wrapper>
         <h1 className="text-3xl my-4 font-semibold font-serif">{isLogin ? "Log In" : "Register"}</h1>
         {errors && <ul>
-          {Object.values(errors).map(error => <li key={error}>{error}</li>)}
+          {Object.values(errors).map(error => <li key={error} className=" text-red-700 text-xs list-disc text-left">{error}</li>)}
         </ul> }
         {isLogin && <Login />}
         {!isLogin && <SignUp />}

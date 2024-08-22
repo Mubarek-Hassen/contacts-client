@@ -13,14 +13,14 @@ function Header() {
   return (
     <header className="flex justify-between items-center bg-indigo-500 w-full">
       <h2 className="mx-2 sm:mx-8 text-lg sm:text-3xl font-semibold font-serif">I-Contact</h2>
-      <nav className="mx-8">
-        <ul className="flex justify-between items-center gap-4 m-2  ">
+      <nav className="mx-2 sm:mx-8">
+        <ul className="flex justify-between items-center gap-4 my-4  ">
           <li >
             <NavLink
               className={({ isActive }) =>
                 isActive
-                  ? "  border-black border-2 p-2 hover:text-slate-200 text-slate-900 hover:bg-slate-800 bg-slate-100 rounded"
-                  : "  w-fit text-center my-8 border-black border-2 p-2 m-auto text-slate-200 hover:text-slate-900 bg-slate-800 hover:bg-slate-100 rounded"
+                  ? " text-xs sm:text-md border-black border-2 p-2 hover:text-slate-200 text-slate-900 hover:bg-slate-800 bg-slate-100 rounded"
+                  : " text-xs sm:text-md w-fit text-center my-8 border-black border-2 p-2 m-auto text-slate-200 hover:text-slate-900 bg-slate-800 hover:bg-slate-100 rounded"
               }
               to="/"
               end
@@ -33,8 +33,8 @@ function Header() {
               <NavLink
                 className={({ isActive }) =>
                   isActive
-                    ? "w-fit  text-center my-8 border-black border-2 p-2 m-auto  hover:text-slate-200 text-slate-900 hover:bg-slate-800 bg-slate-100 rounded"
-                    : "w-fit text-center my-8 border-black border-2 p-2 m-auto text-slate-200 hover:text-slate-900 bg-slate-800 hover:bg-slate-100 rounded"
+                    ? "w-fit text-xs sm:text-md text-center my-8 border-black border-2 p-2 m-auto  hover:text-slate-200 text-slate-900 hover:bg-slate-800 bg-slate-100 rounded"
+                    : "w-fit text-xs sm:text-md text-center my-8 border-black border-2 p-2 m-auto text-slate-200 hover:text-slate-900 bg-slate-800 hover:bg-slate-100 rounded"
                 }
                 to="contacts"
               >
@@ -47,8 +47,8 @@ function Header() {
               <NavLink
                 className={({ isActive }) =>
                   isActive
-                    ? "  border-black border-2 p-2 bg-slate-900 underline text-green-500 hover:bg-slate-200 hover:text-slate-900 rounded"
-                    : "  border-black border-2 p-2 bg-black text-green-500 hover:bg-slate-200 hover:text-slate-900 rounded"
+                    ? " text-xs sm:text-md border-black border-2 p-2 bg-slate-900 underline text-green-500 hover:bg-slate-200 hover:text-slate-900 rounded"
+                    : " text-xs sm:text-md border-black border-2 p-2 bg-black text-green-500 hover:bg-slate-200 hover:text-slate-900 rounded"
                 }
                 to="/auth?mode=login"
               >
@@ -66,7 +66,7 @@ function Header() {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="currentColor"
-                  className="size-6"
+                  className="size-4 sm:size-6"
                 >
                   <path
                     fillRule="evenodd"
