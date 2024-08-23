@@ -2,6 +2,7 @@ import { Outlet, redirect, useLoaderData, useSubmit } from "react-router-dom"
 import Header from "./Header"
 import { useEffect } from "react"
 import { getTokenDuration } from "../util/auth"
+import Footer from "./Footer"
 
 function Root() {
   const token = useLoaderData()
@@ -26,10 +27,11 @@ function Root() {
   }, [token, submit])
 
   return (
-    <>
+    <main className="h-svh">
     <Header />
     <Outlet />
-    </>
+    <Footer />
+    </main>
   )
 }
 

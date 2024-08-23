@@ -8,8 +8,8 @@ function Login() {
   return (
   <>
     <Form method="post" className="">
-      <Input label="Email" name="email" amIError={inputErrors} type="text" />
-      <Input label="Password" name="password" amIError={inputErrors} type="password" />
+      <Input label="Email" name="email" amIError={inputErrors} required type="text" />
+      <Input label="Password" name="password" amIError={inputErrors} required type="password" />
       <Button type="submit">Submit</Button>
     </Form>
   </>
