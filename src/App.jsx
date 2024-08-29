@@ -2,7 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import Auth from "./pages/Auth";
 import ContactList from "./pages/ContactList";
-import Contact from "./pages/Contact";
+// import Contact from "./pages/Contact";
 import EditContact from "./pages/EditContact";
 import Root from "./components/Root";
 import Home from "./pages/Home";
@@ -13,8 +13,12 @@ import { checkAuthLoader, tokenLoader } from "./util/auth";
 import { action as logoutAction } from "./util/router-actions/logoutAction"
 import { authAction } from "./util/router-actions/authAction";
 import { contactAction } from "./util/router-actions/contactAction";
-import { contactLoader } from "./util/router-loaders/contactLoader";
+// import { contactLoader } from "./util/router-loaders/contactLoader";
 import { contactsLoader } from "./util/router-loaders/contactsLoader";
+import { lazy, Suspense } from "react"
+
+
+const Contact = lazy( ()=> import("./pages/Contact.jsx"))
 
 function App() {
   const router = createBrowserRouter([
@@ -44,12 +48,13 @@ function App() {
             },
             {
               path: ":contactId",
-              loader: contactLoader,
+              // loader: (meta)=>import("./util/router-loaders/contactLoader").then((module)=> module.contactLoader(meta)),
+              loader: ({params})=>import("./util/router-loaders/contactLoader").then((module)=> module.contactLoader({params})),
               action: contactAction,
               id: "contact",
               children: [
                 {
-                  index: true, element: <Contact />,
+                  index: true, element: <Suspense fallback={<p>Loading...</p>}><Contact /></Suspense>,
                 },
                 {
                   path: "edit",
