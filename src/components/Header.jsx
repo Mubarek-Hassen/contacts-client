@@ -47,7 +47,7 @@ function Header() {
               <NavLink
                 className={({ isActive }) =>
                   isActive
-                    ? " text-xs sm:text-lg border-black border-2 p-2 bg-slate-900 underline text-green-500 hover:bg-slate-200 hover:text-slate-900 rounded"
+                    ? " text-xs sm:text-lg border-black border-2 p-2 bg-slate-800 underline text-slate-200 hover:bg-slate-200 hover:text-slate-900 rounded"
                     : " text-xs sm:text-lg border-black border-2 p-2 bg-black text-green-500 hover:bg-slate-200 hover:text-slate-900 rounded"
                 }
                 to="/auth?mode=login"

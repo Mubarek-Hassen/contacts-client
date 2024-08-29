@@ -1,7 +1,12 @@
 import { Form } from "react-router-dom";
+import { useState } from "react"
 import Wrapper from "./Wrapper"
 import Input from "./Input"
 const ContactForm = ({ method, contact, formType }) => {
+  const [inputs, setInputs] = useState([])
+  const addInputs =()=>{
+    setInputs([...inputs], {label: ""})
+  }
   return (
 <Wrapper>
   <h1 className=" text-2xl sm:text-3xl">{formType}</h1>
@@ -24,9 +29,10 @@ const ContactForm = ({ method, contact, formType }) => {
         defaultValue={contact ? contact.profession : ""}
         required
       />
+
+      <button  className="w-fit mt-4 text-center  border-black border-2 p-2 m-auto text-slate-200 hover:text-slate-900 bg-slate-800 hover:bg-slate-100 rounded">Add a new field</button>
+
       <button className="w-fit mt-4 text-center  border-black border-2 p-2 m-auto text-slate-200 hover:text-slate-900 bg-slate-800 hover:bg-slate-100 rounded" type="submit">Save Contact</button>
-      <br />
-      <br />
     </Form>
     </Wrapper>
   );

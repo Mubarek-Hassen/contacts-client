@@ -5,7 +5,7 @@ function ContactList() {
   const contacts = useLoaderData();
 
   return (
-    <div className="grid">
+    <div className="flex flex-col">
       <Link className=" my-8 bg-blue-400 w-fit m-auto p-2 rounded text-lg font-medium border-black border-2 hover:bg-blue-100 " to="new">
         Add New Contact
       </Link>
