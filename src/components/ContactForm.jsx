@@ -1,11 +1,15 @@
-import { Form } from "react-router-dom";
+import { Form, useActionData } from "react-router-dom";
 import Wrapper from "./Wrapper"
 import Input from "./Input"
 const ContactForm = ({ method, contact, formType }) => {
+  const data = useActionData()
+  console.log(data);
+  
   return (
 <Wrapper>
   <h1 className=" text-2xl sm:text-3xl">{formType}</h1>
     <Form method={method} className="w-3/4 flex justify-center flex-col m-auto text-left sm:text-center  my-4 ">
+      {data && <p className="text-red-600">{data}.</p>}
       <Input
         type="text"
         aria-label="name"

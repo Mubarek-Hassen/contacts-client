@@ -1,4 +1,4 @@
-import { json, redirect } from "react-router-dom"
+import { redirect } from "react-router-dom"
 import { getAuthToken } from "../auth"
 
 
@@ -37,7 +37,8 @@ export const action = async ({request, params}) =>{
   
   const resData = await response.json()
   if(response.status === 401){
-      throw json({message: resData}, { status: 401})
+      // throw json({message: resData}, { status: 401})
+      return redirect("."),resData
   }
   return redirect("/contacts")
 }
