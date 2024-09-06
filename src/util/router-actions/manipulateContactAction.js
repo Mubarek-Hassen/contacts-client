@@ -11,7 +11,10 @@ export const action = async ({request, params}) =>{
   const data = await request.formData()
   const enteredContactData = {
     name: data.get("name"),
-    profession: data.get("profession")
+    profession: data.get("profession"),
+    image: data.get("image"),
+    email: data.get("email"),
+    social_media_link: data.get("social_media_link")
   }
   console.log(method)
   

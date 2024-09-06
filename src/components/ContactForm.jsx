@@ -35,9 +35,8 @@ const ContactForm = ({ method, contact, formType }) => {
         label="Image URL"
         name="image"
         defaultValue={contact ? contact.image : ""}
-        required
       />
-      {contact.image && <img src={`${contact.image}`} />}
+      {method === 'put' && contact.image ? <img className="w-32 h-32 m-auto" src={`${contact.image}`} /> : "" }
       <Input
         type="text"
         aria-label="email"
@@ -45,7 +44,6 @@ const ContactForm = ({ method, contact, formType }) => {
         label="email"
         name="email"
         defaultValue={contact ? contact.email : ""}
-        required
       />
       <Input
         type="text"
@@ -54,7 +52,6 @@ const ContactForm = ({ method, contact, formType }) => {
         label="social media link"
         name="social_media_link"
         defaultValue={contact ? contact.social_media_link : ""}
-        required
       />
 
 
