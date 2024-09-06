@@ -28,6 +28,34 @@ const ContactForm = ({ method, contact, formType }) => {
         defaultValue={contact ? contact.profession : ""}
         required
       />
+      <Input
+        type="text"
+        aria-label="Image Link"
+        placeholder="Image"
+        label="Image URL"
+        name="image"
+        defaultValue={contact ? contact.image : ""}
+        required
+      />
+      {contact.image && <img src={`${contact.image}`} />}
+      <Input
+        type="text"
+        aria-label="email"
+        placeholder="contact email"
+        label="email"
+        name="email"
+        defaultValue={contact ? contact.email : ""}
+        required
+      />
+      <Input
+        type="text"
+        aria-label="social media link"
+        placeholder="social media link"
+        label="social media link"
+        name="social_media_link"
+        defaultValue={contact ? contact.social_media_link : ""}
+        required
+      />
 
 
       <button className="w-fit mt-4 text-center  border-black border-2 p-2 m-auto text-slate-200 hover:text-slate-900 bg-slate-800 hover:bg-slate-100 rounded" type="submit">Save Contact</button>
