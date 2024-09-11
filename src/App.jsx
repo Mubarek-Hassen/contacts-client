@@ -29,7 +29,7 @@ function App() {
       id: "root",
       loader: tokenLoader,
       children: [
-        { path: "/", element: <Home /> },
+        { path: "/", element: <Home />},
         { path: "/auth", element: <Auth />, action: authAction },
         {
           path: "/contacts",
