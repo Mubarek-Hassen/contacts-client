@@ -27,9 +27,11 @@ function Root() {
   }, [token, submit])
 
   return (
-    <main className="h-svh">
-    <Header />
-    <Outlet />
+    <main className="h-svh flex flex-col justify-between">
+    <div>
+      <Header />
+      <Outlet />
+    </div>
     <Footer />
     </main>
   )

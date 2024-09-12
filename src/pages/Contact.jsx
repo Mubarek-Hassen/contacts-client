@@ -14,9 +14,11 @@ export default function Contact() {
   };
 
   return (
-    <div className=" my-8 p-4 w-3/5 m-auto bg-indigo-300 " >
-      <h2 className="text-4xl my-4 ">Name - {contact.name}</h2>
-      <h2 className="text-4xl mb-4">Profession - {contact.profession}</h2>
+    <div className=" my-8 p-4 w-3/5 m-auto bg-indigo-300 text-left " >
+      <img src="" alt="" />
+      <h2 className="text-2xl my-4 ">Name - {contact.name}</h2>
+      <h2 className="text-2xl mb-4">Profession - {contact.profession}</h2>
+      <div className="text-center">
       <Link to="edit">
         <Button>
           <span className="flex">
@@ -50,6 +52,7 @@ export default function Contact() {
           </svg>
         </span>
       </Button>
+      </div>
     </div>
   );
 }
