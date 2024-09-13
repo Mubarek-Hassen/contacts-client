@@ -1,7 +1,8 @@
 import { Link, useRouteLoaderData, useSubmit } from "react-router-dom";
 import Button from "../components/Button";
-
+import avatar from "../assets/3d-icon-of-people-free-png.webp"
 export default function Contact() {
+
   const contact = useRouteLoaderData("contact");
   const submit = useSubmit();
   const startDeleteHandler = () => {
@@ -12,13 +13,18 @@ export default function Contact() {
       submit(null, { method: "delete", action: "/contacts/" + contact._id });
     }
   };
-
   return (
-    <div className=" my-8 p-4 w-3/5 m-auto bg-indigo-300 text-left " >
-      <img src="" alt="" />
-      <h2 className="text-2xl my-4 ">Name - {contact.name}</h2>
-      <h2 className="text-2xl mb-4">Profession - {contact.profession}</h2>
-      <div className="text-center">
+    <div className=" my-8 p-4 w-3/5 m-auto bg-indigo-300 text-left md:grid grid-cols-5 grid-rows-1 " >
+      
+      <img src={contact.image ? contact.image : avatar } alt="contact avatar" className="w-4/5 m-auto md:w-full col-start-4 col-end-6" />
+      <section className="col-start-1 col-span-3 row-start-1 row-end-3">
+      <h2 className="text-xl my-4 ">Name - {contact.name}</h2>
+      <h2 className="text-xl mb-4">Profession - {contact.profession}</h2>
+      <h2 className="text-xl mb-4">Email - {contact.email}</h2>
+      <h2 className="text-xl mb-4">Social Media Link - {contact.social_media_link}</h2>
+      </section>
+      
+      <div className="text-center row-start-3 row-end-4 col-span-5 mt-14 ">
       <Link to="edit">
         <Button>
           <span className="flex">
