@@ -6,8 +6,6 @@ function Auth() {
   const [searchParams] = useSearchParams();
   const isLogin = searchParams.get("mode") === "login";
   const errors = useActionData()
-  console.log(errors);
-  
   return (
     <>
       <Wrapper>

@@ -7,6 +7,8 @@ import Footer from "./Footer"
 function Root() {
   const token = useLoaderData()
   const submit = useSubmit()
+
+  
   useEffect(()=>{
     if(!token){
       return;

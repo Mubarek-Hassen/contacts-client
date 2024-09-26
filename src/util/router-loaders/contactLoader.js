@@ -5,7 +5,7 @@ import { getAuthToken } from "../auth"
 export const contactLoader = async ({params})=>{
   const token = getAuthToken()
   const { contactId } = params
-  const res = await fetch(`http://localhost:4000/contacts/${contactId}`, {
+  const res = await fetch(`${import.meta.env.VITE_BASE_URL}/contacts/${contactId}`, {
     headers: {
       "Content-Type": "application/json",
       "Authorization": "Bearer "+ token

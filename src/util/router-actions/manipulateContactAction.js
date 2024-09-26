@@ -16,16 +16,15 @@ export const action = async ({request, params}) =>{
     email: data.get("email"),
     social_media_link: data.get("social_media_link")
   }
-  console.log(method)
-  
-  let url = "http://localhost:4000/contacts"
+  const baseUrl = import.meta.env.VITE_BASE_URL
+  let url = `${baseUrl}/contacts`
 
   if(method === "POST"){
-    url = "http://localhost:4000/contacts/new"
+    url = `${baseUrl}/contacts/new`
   }
 
   if(method === "PUT"){
-    url = `http://localhost:4000/contacts/${contactId}`
+    url = `${baseUrl}/contacts/${contactId}`
   }
 
 
@@ -40,7 +39,6 @@ export const action = async ({request, params}) =>{
   
   const resData = await response.json()
   if(response.status === 401){
-      // throw json({message: resData}, { status: 401})
       return redirect("."),resData
   }
   return redirect("/contacts")

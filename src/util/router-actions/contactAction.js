@@ -4,8 +4,9 @@ import { getAuthToken } from "../auth"
 
 export const contactAction = async({request, params})=>{
   const token = getAuthToken()
+  const url = import.meta.env.VITE_BASE_URL
   const {contactId} = params
-  const response = await fetch(`http://localhost:4000/contacts/${contactId}`, {
+  const response = await fetch(`${url}/contacts/${contactId}`, {
     method: request.method,
     headers: {
       "Content-Type": "application/json",

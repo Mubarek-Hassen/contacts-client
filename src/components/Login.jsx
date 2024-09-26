@@ -4,8 +4,6 @@ import Input from "./Input"
 
 function Login() {
   const errors = useActionData()
-  console.log(errors);
-  
   const inputErrors = errors !== undefined ?  Object.keys(errors) : []
   return (
   <>

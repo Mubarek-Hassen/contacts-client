@@ -3,8 +3,6 @@ import Wrapper from "./Wrapper"
 import Input from "./Input"
 const ContactForm = ({ method, contact, formType }) => {
   const data = useActionData()
-  console.log(data);
-  
   return (
 <Wrapper>
   <h1 className=" text-2xl sm:text-3xl">{formType}</h1>
