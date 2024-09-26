@@ -22,8 +22,6 @@ export async function authAction({ request }){
   }) 
   
   const resData = await res.json()
-
-  console.log(resData);
   if(!resData.token){
     return resData;
   }  
